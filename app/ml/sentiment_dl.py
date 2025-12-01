@@ -1,5 +1,12 @@
-import torch
-import torch.nn as nn
+try:
+    import torch
+    import torch.nn as nn
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    torch = None
+    nn = None
+    
 import numpy as np
 from typing import Dict
 import os
@@ -10,10 +17,13 @@ from app.core.logger import log
 settings = get_settings()
 
 
-class BiLSTMSentimentModel(nn.Module):
-    """BiLSTM model for sentiment classification"""
+class BiLSTMSentimentModel:
+    """BiLSTM model for sentiment classification (requires torch)"""
     
     def __init__(self, vocab_size=10000, embedding_dim=100, hidden_dim=128, output_dim=3):
+        if not TORCH_AVAILABLE:
+            raise ImportError("PyTorch is not installed. Install torch to use BiLSTMSentimentModel")
+        
         super(BiLSTMSentimentModel, self).__init__()
         
         self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=0)
