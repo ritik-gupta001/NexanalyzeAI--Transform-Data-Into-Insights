@@ -6,67 +6,67 @@
 
 > An autonomous multi-agent AI platform for intelligent research, data analysis, and automated insights generation.
 
-## ≡ƒîƒ Overview
+## 🌟 Overview
 
 Nexalyze AI is a cutting-edge research and automation platform that combines the power of Large Language Models (LLMs), Machine Learning, and advanced data processing to deliver:
 
-Γ£¿ **Real-time News Analysis** - Scrape, analyze, and predict sentiment trends  
-≡ƒôä **Document Intelligence** - Extract insights from PDFs, DOCX, and text files  
-≡ƒôè **Data Analytics** - Discover patterns, anomalies, and forecasts from CSV/Excel data  
-≡ƒôê **Automated Reporting** - Generate professional reports in Markdown, PDF, and DOCX formats  
-≡ƒÄ¿ **Smart Visualizations** - Create interactive charts and graphs automatically
+📰 **Real-time News Analysis** - Scrape, analyze, and predict sentiment trends  
+📄 **Document Intelligence** - Extract insights from PDFs, DOCX, and text files  
+📊 **Data Analytics** - Discover patterns, anomalies, and forecasts from CSV/Excel data  
+📝 **Automated Reporting** - Generate professional reports in Markdown, PDF, and DOCX formats  
+📈 **Smart Visualizations** - Create interactive charts and graphs automatically
 
 ---
 
-## ≡ƒÜÇ Live Demo
+## 🌐 Live Demo
 
-≡ƒîÉ **Deployed on Render:** [https://nexalyze-ai.onrender.com](https://nexalyze-ai.onrender.com)
+🚀 **Deployed on Render:** [https://nexalyze-ai.onrender.com](https://nexalyze-ai.onrender.com)
 
 ---
 
-## Γ£¿ Key Features
+## 🔍 Key Features
 
-### ≡ƒöì Intelligent Analysis
+### 🎨 Intelligent Analysis
 - **Multi-Agent Architecture**: Orchestrated AI agents for complex task decomposition
 - **LLM-Powered Insights**: Uses OpenAI GPT models via LangChain for deep analysis
 - **ML Sentiment Analysis**: Custom scikit-learn models for accurate sentiment scoring
 - **Trend Forecasting**: Statistical models for predicting future trends
 
-### ≡ƒôü Multi-Format Support
+### 📁 Multi-Format Support
 - **Documents**: PDF, DOCX, TXT
 - **Data Files**: CSV, Excel (XLSX, XLS)
 - **Web Content**: Real-time news scraping and analysis
 
-### ≡ƒôè Advanced Analytics
+### 📊 Advanced Analytics
 - Statistical analysis and distribution analysis
 - Correlation detection
 - Anomaly detection
 - Time series forecasting
 - Sentiment trend prediction
 
-### ≡ƒÄ» Professional Outputs
+### 📋 Professional Outputs
 - **Reports**: Markdown, PDF, DOCX formats
 - **Visualizations**: Sentiment charts, trend graphs, correlation matrices, distribution plots
 - **Task Tracking**: Complete task history with downloadable artifacts
 
 ---
 
-## ≡ƒÅù∩╕Å Architecture
+## 🧠 Architecture
 
 ```
-ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-Γöé                    FastAPI Backend                      Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé  REST API  Γöé  WebSocket  Γöé  Static Files  Γöé  Templates  Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé              Agent Orchestrator (LangChain)             Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé News Scraper Γöé  Doc Parser  Γöé  Data Analyzer  Γöé  LLM   Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé         ML Models (Sentiment, Forecasting)              Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé            SQLite Database (Task Storage)               Γöé
-ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+┌─────────────────────────────────────────────────────────┐
+│                    FastAPI Backend                      │
+├─────────────────────────────────────────────────────────┤
+│  REST API  │  WebSocket  │  Static Files  │  Templates  │
+├─────────────────────────────────────────────────────────┤
+│              Agent Orchestrator (LangChain)             │
+├─────────────┬──────────────┬────────────────────────────┤
+│ News Scraper │  Doc Parser  │  Data Analyzer  │  LLM   │
+├─────────────┼──────────────┼─────────────────────────────┤
+│         ML Models (Sentiment, Forecasting)              │
+├─────────────────────────────────────────────────────────┤
+│            SQLite Database (Task Storage)               │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ### Tech Stack
@@ -78,7 +78,7 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 
 ---
 
-## ≡ƒôï Prerequisites
+## 📦 Prerequisites
 
 - Python 3.10 or higher
 - OpenAI API Key ([Get one here](https://platform.openai.com/api-keys))
@@ -86,7 +86,7 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 
 ---
 
-## ΓÜÖ∩╕Å Installation & Setup
+## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -148,16 +148,16 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 ---
 
-## ≡ƒôû API Documentation
+## 📚 API Documentation
 
 ### Endpoints
 
-#### ≡ƒÅÑ Health Check
+#### ✅ Health Check
 ```http
 GET /api/v1/health
 ```
 
-#### ≡ƒô░ Analyze Text/News
+#### 📰 Analyze Text/News
 ```http
 POST /api/v1/tasks/analyze-text
 Content-Type: application/json
@@ -169,7 +169,7 @@ Content-Type: application/json
 }
 ```
 
-#### ≡ƒôä Analyze Document
+#### 📄 Analyze Document
 ```http
 POST /api/v1/tasks/analyze-doc
 Content-Type: multipart/form-data
@@ -178,7 +178,7 @@ file: <PDF/DOCX/TXT file>
 instruction: "Summarize key findings and recommendations"
 ```
 
-#### ≡ƒôè Analyze Data
+#### 📊 Analyze Data
 ```http
 POST /api/v1/tasks/analyze-data
 Content-Type: multipart/form-data
@@ -187,12 +187,12 @@ file: <CSV/Excel file>
 instruction: "Find patterns and predict future trends"
 ```
 
-#### ≡ƒôï Get Task Status
+#### 📦 Get Task Status
 ```http
 GET /api/v1/tasks/{task_id}
 ```
 
-#### ≡ƒô¥ List All Tasks
+#### 📋 List All Tasks
 ```http
 GET /api/v1/tasks/?page=1&page_size=10
 ```
@@ -222,7 +222,7 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 ---
 
-## ≡ƒÜÇ Deployment on Render
+## 🌐 Deployment on Render
 
 ### Option 1: Deploy from GitHub (Recommended)
 
@@ -235,7 +235,7 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 2. **Connect to Render**
    - Go to [Render Dashboard](https://dashboard.render.com/)
-   - Click "New +" ΓåÆ "Web Service"
+   - Click "New +" → "Web Service"
    - Connect your GitHub repository
 
 3. **Configure Service**
@@ -275,65 +275,65 @@ services:
 
 ---
 
-## ≡ƒôü Project Structure
+## 📁 Project Structure
 
 ```
 nexalyze-ai/
-Γö£ΓöÇΓöÇ app/
-Γöé   Γö£ΓöÇΓöÇ main.py                    # FastAPI application entry point
-Γöé   Γö£ΓöÇΓöÇ api/
-Γöé   Γöé   Γö£ΓöÇΓöÇ routes_health.py       # Health check endpoints
-Γöé   Γöé   ΓööΓöÇΓöÇ routes_tasks.py        # Task management endpoints
-Γöé   Γö£ΓöÇΓöÇ core/
-Γöé   Γöé   Γö£ΓöÇΓöÇ config.py              # Configuration management
-Γöé   Γöé   ΓööΓöÇΓöÇ logger.py              # Logging setup
-Γöé   Γö£ΓöÇΓöÇ db/
-Γöé   Γöé   Γö£ΓöÇΓöÇ base.py                # Database engine and session
-Γöé   Γöé   Γö£ΓöÇΓöÇ models.py              # SQLAlchemy models
-Γöé   Γöé   ΓööΓöÇΓöÇ init_db.py             # Database initialization
-Γöé   Γö£ΓöÇΓöÇ genai/
-Γöé   Γöé   Γö£ΓöÇΓöÇ llm_client.py          # OpenAI/LangChain integration
-Γöé   Γöé   ΓööΓöÇΓöÇ prompts.py             # LLM prompt templates
-Γöé   Γö£ΓöÇΓöÇ ml/
-Γöé   Γöé   Γö£ΓöÇΓöÇ sentiment_ml.py        # ML-based sentiment analysis
-Γöé   Γöé   Γö£ΓöÇΓöÇ sentiment_dl.py        # Deep learning sentiment (optional)
-Γöé   Γöé   ΓööΓöÇΓöÇ forecast_model.py      # Forecasting models
-Γöé   Γö£ΓöÇΓöÇ services/
-Γöé   Γöé   Γö£ΓöÇΓöÇ agent_orchestrator.py  # Multi-agent task orchestration
-Γöé   Γöé   Γö£ΓöÇΓöÇ tools_news.py          # News scraping tools
-Γöé   Γöé   Γö£ΓöÇΓöÇ tools_docs.py          # Document processing tools
-Γöé   Γöé   Γö£ΓöÇΓöÇ tools_data.py          # Data analysis tools
-Γöé   Γöé   Γö£ΓöÇΓöÇ tools_visualization.py # Chart generation
-Γöé   Γöé   ΓööΓöÇΓöÇ tools_report.py        # Report generation
-Γöé   Γö£ΓöÇΓöÇ models/
-Γöé   Γöé   ΓööΓöÇΓöÇ schemas_tasks.py       # Pydantic schemas
-Γöé   Γö£ΓöÇΓöÇ static/
-Γöé   Γöé   Γö£ΓöÇΓöÇ style.css              # Frontend styles
-Γöé   Γöé   ΓööΓöÇΓöÇ app.js                 # Frontend JavaScript
-Γöé   Γö£ΓöÇΓöÇ templates/
-Γöé   Γöé   ΓööΓöÇΓöÇ index.html             # Web UI template
-Γöé   Γö£ΓöÇΓöÇ charts/                    # Generated charts (gitignored)
-Γöé   ΓööΓöÇΓöÇ reports/                   # Generated reports (gitignored)
-Γö£ΓöÇΓöÇ data/                          # Data files (gitignored)
-Γö£ΓöÇΓöÇ logs/                          # Application logs (gitignored)
-Γö£ΓöÇΓöÇ models/                        # Trained ML models
-Γö£ΓöÇΓöÇ uploads/                       # Uploaded files (gitignored)
-Γö£ΓöÇΓöÇ tests/
-Γöé   Γö£ΓöÇΓöÇ test_api.py                # API tests
-Γöé   ΓööΓöÇΓöÇ test_ml.py                 # ML model tests
-Γö£ΓöÇΓöÇ examples/
-Γöé   ΓööΓöÇΓöÇ usage_example.py           # API usage examples
-Γö£ΓöÇΓöÇ .env                           # Environment variables (create this)
-Γö£ΓöÇΓöÇ .gitignore                     # Git ignore rules
-Γö£ΓöÇΓöÇ requirements.txt               # Python dependencies
-Γö£ΓöÇΓöÇ runtime.txt                    # Python version for Render
-Γö£ΓöÇΓöÇ render.yaml                    # Render deployment config
-ΓööΓöÇΓöÇ README.md                      # This file
+├── app/
+│   ├── main.py                    # FastAPI application entry point
+│   ├── api/
+│   │   ├── routes_health.py       # Health check endpoints
+│   │   └── routes_tasks.py        # Task management endpoints
+│   ├── core/
+│   │   ├── config.py              # Configuration management
+│   │   └── logger.py              # Logging setup
+│   ├── db/
+│   │   ├── base.py                # Database engine and session
+│   │   ├── models.py              # SQLAlchemy models
+│   │   └── init_db.py             # Database initialization
+│   ├── genai/
+│   │   ├── llm_client.py          # OpenAI/LangChain integration
+│   │   └── prompts.py             # LLM prompt templates
+│   ├── ml/
+│   │   ├── sentiment_ml.py        # ML-based sentiment analysis
+│   │   ├── sentiment_dl.py        # Deep learning sentiment (optional)
+│   │   └── forecast_model.py      # Forecasting models
+│   ├── services/
+│   │   ├── agent_orchestrator.py  # Multi-agent task orchestration
+│   │   ├── tools_news.py          # News scraping tools
+│   │   ├── tools_docs.py          # Document processing tools
+│   │   ├── tools_data.py          # Data analysis tools
+│   │   ├── tools_visualization.py # Chart generation
+│   │   └── tools_report.py        # Report generation
+│   ├── models/
+│   │   └── schemas_tasks.py       # Pydantic schemas
+│   ├── static/
+│   │   ├── style.css              # Frontend styles
+│   │   └── app.js                 # Frontend JavaScript
+│   ├── templates/
+│   │   └── index.html             # Web UI template
+│   ├── charts/                    # Generated charts (gitignored)
+│   └── reports/                   # Generated reports (gitignored)
+├── data/                          # Data files (gitignored)
+├── logs/                          # Application logs (gitignored)
+├── models/                        # Trained ML models
+├── uploads/                       # Uploaded files (gitignored)
+├── tests/
+│   ├── test_api.py                # API tests
+│   └── test_ml.py                 # ML model tests
+├── examples/
+│   └── usage_example.py           # API usage examples
+├── .env                           # Environment variables (create this)
+├── .gitignore                     # Git ignore rules
+├── requirements.txt               # Python dependencies
+├── runtime.txt                    # Python version for Render
+├── render.yaml                    # Render deployment config
+└── README.md                      # This file
 ```
 
 ---
 
-## ≡ƒº¬ Running Tests
+## 🧪 Running Tests
 
 ```bash
 # Run all tests
@@ -348,7 +348,7 @@ pytest tests/test_api.py
 
 ---
 
-## ≡ƒô¥ Example Usage
+## 📋 Example Usage
 
 Check out `examples/usage_example.py` for comprehensive API usage examples:
 
@@ -358,7 +358,7 @@ python examples/usage_example.py
 
 ---
 
-## ≡ƒñ¥ Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -370,13 +370,13 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## ≡ƒôä License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## ≡ƒæ¿ΓÇì≡ƒÆ╗ Author
+## 👨‍💻 Author
 
 **Ritik Gupta**
 
@@ -385,7 +385,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## ≡ƒÖÅ Acknowledgments
+## 🙏 Acknowledgments
 
 - OpenAI for GPT models
 - FastAPI team for the amazing framework
@@ -394,15 +394,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## ≡ƒôº Support
+## 💬 Support
 
 For support, please open an issue on GitHub or contact through the repository.
 
 ---
 
 <div align="center">
-  Made with Γ¥ñ∩╕Å by Ritik Gupta
+  Made with ❤️ by Ritik Gupta
   <br><br>
-  Γ¡É Star this repo if you find it helpful!
+  ⭐ Star this repo if you find it helpful!
 </div>
 
