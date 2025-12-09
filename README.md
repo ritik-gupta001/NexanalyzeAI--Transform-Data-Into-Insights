@@ -20,7 +20,7 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 
 ## 🌐 Live Demo
 
-🚀 **Deployed on Render:** [https://nexalyze-ai.onrender.com](https://nexalyze-ai.onrender.com)
+🚀 **Deployed on Vercel:** [https://nexalyze-ai.vercel.app](https://nexalyze-ai.vercel.app)
 
 ---
 
@@ -74,7 +74,7 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 - **AI/ML**: OpenAI GPT, LangChain, scikit-learn, PyTorch
 - **Database**: SQLAlchemy ORM with SQLite
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Deployment**: Render (Docker-compatible)
+- **Deployment**: Vercel (Serverless)
 
 ---
 
@@ -224,86 +224,105 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 ## 🌐 Deployment
 
-### 🚀 Deploy to Koyeb (Recommended)
+### 🚀 Deploy to Vercel (Recommended)
 
-Koyeb provides fast, reliable deployment with generous free tier.
+Vercel provides seamless serverless deployment with excellent performance and generous free tier.
 
-#### Quick Deploy
+#### Prerequisites
+- Install Vercel CLI: `npm install -g vercel`
+- Or use the Vercel Dashboard for GUI deployment
 
-1. **Push to GitHub**
+#### Quick Deploy via CLI
+
+1. **Login to Vercel**
    ```bash
-   git add .
-   git commit -m "Deploy to Koyeb"
-   git push origin main
+   vercel login
    ```
 
-2. **Deploy on Koyeb**
-   - Visit [Koyeb Dashboard](https://app.koyeb.com/)
-   - Click **"Create App"**
-   - Select **"GitHub"** as deployment method
-   - Choose your repository: `NexanalyzeAI--Transform-Data-Into-Insights`
-   - Branch: `main`
+2. **Deploy the Project**
+   ```bash
+   vercel
+   ```
+   Follow the prompts:
+   - Set up and deploy: `Y`
+   - Which scope: Select your account
+   - Link to existing project: `N`
+   - Project name: `nexalyze-ai`
+   - Directory: `./`
+   - Want to modify settings: `N`
 
-3. **Configure Deployment**
-   - **Builder**: Docker
-   - **Dockerfile**: `Dockerfile` (auto-detected)
-   - **Port**: `8000`
-   - **Instance Type**: Free (Eco)
-
-4. **Environment Variables**
-   Click **"Add Variable"** for each:
+3. **Set Environment Variables**
+   ```bash
+   vercel env add OPENAI_API_KEY
+   vercel env add ENVIRONMENT
+   vercel env add DATABASE_URL
+   ```
+   Or add them in the Vercel Dashboard under Settings → Environment Variables:
    - `OPENAI_API_KEY` = Your OpenAI API key
    - `ENVIRONMENT` = `production`
    - `DATABASE_URL` = `sqlite:///./pra_database.db`
 
-5. **Deploy**
-   - Click **"Deploy"**
-   - Wait 2-3 minutes for build
-   - Access your app at: `https://your-app-name.koyeb.app`
+4. **Deploy to Production**
+   ```bash
+   vercel --prod
+   ```
 
-#### Health Check
-- Visit: `https://your-app-name.koyeb.app/api/v1/health`
-- API Docs: `https://your-app-name.koyeb.app/docs`
+#### Quick Deploy via Dashboard
 
----
+1. **Connect to Vercel**
+   - Visit [Vercel Dashboard](https://vercel.com/new)
+   - Click **"Import Project"**
+   - Select **"Import Git Repository"**
+   - Choose your repository: `NexanalyzeAI--Transform-Data-Into-Insights`
 
-### Alternative: Deploy to Render
-
-1. **Connect to Render**
-   - Go to [Render Dashboard](https://dashboard.render.com/)
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository
-
-2. **Configure Service**
-   - **Name**: `nexalyze-ai`
-   - **Environment**: `Python 3`
-   - **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port 10000`
+2. **Configure Project**
+   - **Framework Preset**: Other
+   - **Root Directory**: `./`
+   - **Build Command**: Leave default
+   - **Output Directory**: Leave default
 
 3. **Environment Variables**
-   - `OPENAI_API_KEY`: Your OpenAI API key
-   - `PORT`: `10000`
-   - `ENVIRONMENT`: `production`
+   Click **"Add"** for each variable:
+   - `OPENAI_API_KEY` = Your OpenAI API key
+   - `ENVIRONMENT` = `production`
+   - `DATABASE_URL` = `sqlite:///./pra_database.db`
 
-4. **Deploy** - Click "Create Web Service"
+4. **Deploy**
+   - Click **"Deploy"**
+   - Wait 1-2 minutes for build
+   - Access your app at: `https://your-project-name.vercel.app`
+
+#### Post-Deployment
+- **Health Check**: `https://your-project-name.vercel.app/api/v1/health`
+- **API Docs**: `https://your-project-name.vercel.app/docs`
+- **Custom Domain**: Add in Vercel Dashboard → Settings → Domains
+
+#### Automatic Deployments
+Vercel automatically deploys:
+- **Production**: Every push to `main` branch
+- **Preview**: Every push to other branches or pull requests
 
 ---
 
-### 📊 Deployment Comparison
+### 📊 Vercel Benefits
 
-| Feature | Koyeb | Render |
-|---------|-------|--------|
-| Free Tier | ✅ 512MB RAM | ✅ 512MB RAM |
-| Cold Starts | ❌ No (always on) | ⚠️ Yes (15min timeout) |
-| Build Time | ~2-3 min | ~3-5 min |
-| Docker Support | ✅ Native | ⚠️ Limited |
-| Global CDN | ✅ Yes | ✅ Yes |
-| Custom Domain | ✅ Free | ✅ Free |
+| Feature | Vercel |
+|---------|--------|
+| Free Tier | ✅ Generous limits |
+| Cold Starts | ⚡ Fast (serverless) |
+| Build Time | ~1-2 min |
+| Global CDN | ✅ Edge Network |
+| Auto Scaling | ✅ Automatic |
+| Custom Domain | ✅ Free SSL |
+| GitHub Integration | ✅ Automatic deploys |
+| Preview Deployments | ✅ Per PR |
 
-**Recommendation**: Use **Koyeb** for better performance and no cold starts on free tier.
-        value: 10000
-      - key: ENVIRONMENT
-        value: production
+**Why Vercel?**
+- ⚡ Lightning-fast global CDN
+- 🔄 Automatic deployments from GitHub
+- 🌍 Edge network for low latency
+- 📊 Built-in analytics
+- 🔒 Free SSL certificates
 ```
 
 ---
