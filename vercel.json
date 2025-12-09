@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "app/main.py"
     }
-  ],
-  "env": {
-    "OPENAI_API_KEY": "@openai_api_key",
-    "ENVIRONMENT": "production",
-    "DATABASE_URL": "sqlite:///./pra_database.db"
-  }
+  ]
 }
