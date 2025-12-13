@@ -18,12 +18,6 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 
 ---
 
-## 🌐 Live Demo
-
-🚀 **Deployed on Vercel:** [https://nexalyze-ai.vercel.app](https://nexalyze-ai.vercel.app)
-
----
-
 ## 🔍 Key Features
 
 ### 🎨 Intelligent Analysis
@@ -74,7 +68,6 @@ Nexalyze AI is a cutting-edge research and automation platform that combines the
 - **AI/ML**: OpenAI GPT, LangChain, scikit-learn, PyTorch
 - **Database**: SQLAlchemy ORM with SQLite
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Deployment**: Vercel (Serverless)
 
 ---
 
@@ -222,108 +215,214 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 ---
 
-## 🌐 Deployment
+## 🌐 Vercel Deployment Guide
 
-### 🚀 Deploy to Vercel (Recommended)
+### 🚀 Deploy to Vercel (Serverless Platform)
 
-Vercel provides seamless serverless deployment with excellent performance and generous free tier.
+Vercel provides seamless serverless deployment with automatic scaling, global CDN, and zero-configuration deployment.
 
 #### Prerequisites
-- Install Vercel CLI: `npm install -g vercel`
-- Or use the Vercel Dashboard for GUI deployment
-
-#### Quick Deploy via CLI
-
-1. **Login to Vercel**
-   ```bash
-   vercel login
-   ```
-
-2. **Deploy the Project**
-   ```bash
-   vercel
-   ```
-   Follow the prompts:
-   - Set up and deploy: `Y`
-   - Which scope: Select your account
-   - Link to existing project: `N`
-   - Project name: `nexalyze-ai`
-   - Directory: `./`
-   - Want to modify settings: `N`
-
-3. **Set Environment Variables**
-   ```bash
-   vercel env add OPENAI_API_KEY
-   vercel env add ENVIRONMENT
-   vercel env add DATABASE_URL
-   ```
-   Or add them in the Vercel Dashboard under Settings → Environment Variables:
-   - `OPENAI_API_KEY` = Your OpenAI API key
-   - `ENVIRONMENT` = `production`
-   - `DATABASE_URL` = `sqlite:///./pra_database.db`
-
-4. **Deploy to Production**
-   ```bash
-   vercel --prod
-   ```
-
-#### Quick Deploy via Dashboard
-
-1. **Connect to Vercel**
-   - Visit [Vercel Dashboard](https://vercel.com/new)
-   - Click **"Import Project"**
-   - Select **"Import Git Repository"**
-   - Choose your repository: `NexanalyzeAI--Transform-Data-Into-Insights`
-
-2. **Configure Project**
-   - **Framework Preset**: Other
-   - **Root Directory**: `./`
-   - **Build Command**: Leave default
-   - **Output Directory**: Leave default
-
-3. **Environment Variables**
-   Click **"Add"** for each variable:
-   - `OPENAI_API_KEY` = Your OpenAI API key
-   - `ENVIRONMENT` = `production`
-   - `DATABASE_URL` = `sqlite:///./pra_database.db`
-
-4. **Deploy**
-   - Click **"Deploy"**
-   - Wait 1-2 minutes for build
-   - Access your app at: `https://your-project-name.vercel.app`
-
-#### Post-Deployment
-- **Health Check**: `https://your-project-name.vercel.app/api/v1/health`
-- **API Docs**: `https://your-project-name.vercel.app/docs`
-- **Custom Domain**: Add in Vercel Dashboard → Settings → Domains
-
-#### Automatic Deployments
-Vercel automatically deploys:
-- **Production**: Every push to `main` branch
-- **Preview**: Every push to other branches or pull requests
+- GitHub account with your repository pushed
+- Vercel account ([Sign up free](https://vercel.com/signup))
+- OpenAI API Key
 
 ---
 
-### 📊 Vercel Benefits
+### Method 1: Deploy via Vercel Dashboard (Recommended)
 
-| Feature | Vercel |
-|---------|--------|
-| Free Tier | ✅ Generous limits |
-| Cold Starts | ⚡ Fast (serverless) |
-| Build Time | ~1-2 min |
-| Global CDN | ✅ Edge Network |
-| Auto Scaling | ✅ Automatic |
-| Custom Domain | ✅ Free SSL |
-| GitHub Integration | ✅ Automatic deploys |
-| Preview Deployments | ✅ Per PR |
+#### Step 1: Connect to Vercel
+1. Visit [vercel.com/new](https://vercel.com/new)
+2. Click **"Continue with GitHub"** to sign in
+3. Authorize Vercel to access your GitHub repositories
 
-**Why Vercel?**
-- ⚡ Lightning-fast global CDN
-- 🔄 Automatic deployments from GitHub
-- 🌍 Edge network for low latency
-- 📊 Built-in analytics
-- 🔒 Free SSL certificates
+#### Step 2: Import Your Repository
+1. Click **"Import Project"** or **"Add New Project"**
+2. Select **"Import Git Repository"**
+3. Find and select: `NexanalyzeAI--Transform-Data-Into-Insights`
+4. Click **"Import"**
+
+#### Step 3: Configure Project Settings
+- **Framework Preset**: Other
+- **Root Directory**: `./` (leave as default)
+- **Build Command**: (leave empty or default)
+- **Output Directory**: (leave empty or default)
+- **Install Command**: `pip install -r requirements.txt`
+
+#### Step 4: Add Environment Variables
+Click **"Environment Variables"** section and add:
+
+| Key | Value | Environment |
+|-----|-------|-------------|
+| `OPENAI_API_KEY` | `your_openai_api_key_here` | Production, Preview, Development |
+| `ENVIRONMENT` | `production` | Production |
+| `DATABASE_URL` | `sqlite:///./pra_database.db` | All |
+| `APP_NAME` | `Nexalyze AI` | All |
+| `HOST` | `0.0.0.0` | All |
+| `PORT` | `8000` | All |
+
+💡 **Tip**: Get your OpenAI API key from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+
+#### Step 5: Deploy
+1. Click **"Deploy"** button
+2. Wait 1-2 minutes for the build to complete
+3. Once deployed, you'll see: ✅ **"Deployment Ready"**
+
+#### Step 6: Access Your Application
+- **Production URL**: `https://your-project-name.vercel.app`
+- **Health Check**: `https://your-project-name.vercel.app/api/v1/health`
+- **API Documentation**: `https://your-project-name.vercel.app/docs`
+- **Interactive API**: `https://your-project-name.vercel.app/redoc`
+
+---
+
+### Method 2: Deploy via Vercel CLI
+
+#### Step 1: Install Vercel CLI
+```bash
+npm install -g vercel
 ```
+
+#### Step 2: Login to Vercel
+```bash
+vercel login
+```
+
+#### Step 3: Deploy
+```bash
+# Navigate to project directory
+cd NexanalyzeAI--Transform-Data-Into-Insights
+
+# Deploy to preview
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+#### Step 4: Set Environment Variables
+```bash
+vercel env add OPENAI_API_KEY production
+vercel env add ENVIRONMENT production
+vercel env add DATABASE_URL production
+```
+
+---
+
+### 🔄 Automatic Deployments
+
+Once connected, Vercel automatically deploys:
+- ✅ **Production**: Every push to `main` branch
+- 🔍 **Preview**: Every push to feature branches
+- 📝 **PR Previews**: Every pull request gets its own URL
+
+---
+
+### 📊 Post-Deployment Checklist
+
+- [ ] Verify health endpoint: `/api/v1/health`
+- [ ] Test API documentation: `/docs`
+- [ ] Check environment variables in Vercel Dashboard
+- [ ] Test file upload functionality
+- [ ] Verify AI analysis features work
+- [ ] Check logs in Vercel Dashboard → Deployment → Logs
+- [ ] (Optional) Add custom domain in Settings → Domains
+
+---
+
+### 🛠️ Vercel Project Structure
+
+```
+project-root/
+├── api/
+│   └── index.py           # Vercel serverless entry point
+├── app/
+│   ├── main.py            # FastAPI application
+│   ├── api/               # API routes
+│   ├── core/              # Core configuration
+│   ├── db/                # Database models
+│   ├── genai/             # AI/LLM integration
+│   ├── ml/                # ML models
+│   ├── services/          # Business logic
+│   └── ...
+├── vercel.json            # Vercel configuration
+├── requirements.txt       # Python dependencies
+└── README.md
+```
+
+---
+
+### ⚙️ Vercel Configuration (`vercel.json`)
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/main.py"
+    }
+  ]
+}
+```
+
+---
+
+### 🔍 Troubleshooting
+
+#### Build Fails
+- Check Python version compatibility (3.10+)
+- Verify all dependencies in `requirements.txt`
+- Check build logs in Vercel Dashboard
+
+#### Environment Variables Not Working
+- Ensure variables are added to all environments
+- Redeploy after adding new variables
+- Check variable names match exactly (case-sensitive)
+
+#### API Returns 404
+- Verify `vercel.json` configuration
+- Check that `api/index.py` exists
+- Ensure routes in FastAPI are correct
+
+#### Cold Starts / Slow Response
+- Vercel serverless functions have cold starts (~1-3s)
+- Consider upgrading to Vercel Pro for faster cold starts
+- Optimize imports and initialization in your code
+
+---
+
+### 📈 Vercel Features & Benefits
+
+| Feature | Free Tier | Pro Tier |
+|---------|-----------|----------|
+| Deployments | Unlimited | Unlimited |
+| Bandwidth | 100 GB/month | 1 TB/month |
+| Build Time | 100 hours/month | 400 hours/month |
+| Serverless Functions | 12 seconds timeout | 60 seconds timeout |
+| Custom Domains | ✅ Yes | ✅ Yes |
+| SSL Certificates | ✅ Free | ✅ Free |
+| GitHub Integration | ✅ Yes | ✅ Yes |
+| Preview Deployments | ✅ Yes | ✅ Yes |
+| Analytics | Basic | Advanced |
+| Team Members | 1 | Unlimited |
+
+---
+
+### 🎯 Why Vercel?
+
+- ⚡ **Zero Configuration**: Deploy with one click
+- 🌍 **Global CDN**: Fast response times worldwide
+- 🔄 **Automatic CI/CD**: Push to deploy
+- 📊 **Built-in Analytics**: Monitor performance
+- 🔒 **SSL by Default**: Free HTTPS certificates
+- 🎨 **Preview Deployments**: Test before production
+- 📈 **Auto Scaling**: Handle traffic spikes automatically
 
 ---
 
