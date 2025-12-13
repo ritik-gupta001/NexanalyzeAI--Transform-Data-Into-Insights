@@ -1,37 +1,48 @@
-# FastAPI and Web Framework (Essential)
+# FastAPI and Web Framework
 fastapi==0.109.0
-uvicorn==0.27.0
+uvicorn[standard]==0.27.0
 pydantic==2.5.3
 pydantic-settings==2.1.0
 python-multipart==0.0.6
 
-# Database (Essential)
+# Database
 sqlalchemy==2.0.25
 
-# Core Dependencies (Lightweight)
-numpy<2.0.0
+# ML Core
+numpy
 pandas
+scikit-learn
 
-# GenAI / LLM (Essential)
+# GenAI / LLM
 openai
-langchain-core
+langchain
 langchain-openai
 tiktoken
 
-# Web Scraping (Lightweight)
+# NLP & Text Processing
+nltk
+textblob
+
+# Web Scraping & Data
 beautifulsoup4
 requests
 feedparser
 
-# Document Processing (Lightweight)
+# Document Processing
 PyPDF2
 python-docx
 
-# Utilities (Essential)
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Report Generation
+fpdf2
+markdown
+
+# Utilities
 python-dotenv
+loguru
 aiofiles
 httpx
-
-# Note: Heavy ML libraries (scikit-learn, matplotlib, seaborn, plotly, fpdf2, nltk, textblob) 
-# are excluded to reduce deployment size for Vercel serverless functions.
-# For full ML features, consider using a different deployment platform or Vercel Pro.
