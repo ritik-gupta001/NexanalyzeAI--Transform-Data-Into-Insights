@@ -215,160 +215,159 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 ---
 
-## 🌐 Vercel Deployment Guide
+## 🌐 Render Deployment Guide
 
-### 🚀 Deploy to Vercel (Serverless Platform)
+### 🚀 Deploy to Render (Recommended for ML Apps)
 
-Vercel provides seamless serverless deployment with automatic scaling, global CDN, and zero-configuration deployment.
+Render provides free hosting with Docker support, perfect for ML/AI applications with no size restrictions.
+
+#### Why Render?
+- ✅ **Free Tier**: 512MB RAM, no credit card required
+- ✅ **Docker Support**: Full container support for ML libraries
+- ✅ **Auto Deploy**: Push to GitHub triggers deployment
+- ✅ **SSL/HTTPS**: Free SSL certificates
+- ✅ **No Size Limits**: Unlike Vercel, supports large dependencies
+- ✅ **Persistent Storage**: SQLite database persists
+
+---
+
+### Method 1: Deploy via Render Dashboard (Recommended)
 
 #### Prerequisites
-- GitHub account with your repository pushed
-- Vercel account ([Sign up free](https://vercel.com/signup))
-- OpenAI API Key
+- GitHub account with repository pushed
+- Render account ([Sign up free](https://dashboard.render.com/register))
+- OpenAI API Key from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 
----
+#### Step 1: Create Render Account
+1. Go to [dashboard.render.com/register](https://dashboard.render.com/register)
+2. Sign up with GitHub (easiest option)
+3. Authorize Render to access your repositories
 
-### Method 1: Deploy via Vercel Dashboard (Recommended)
+#### Step 2: Create New Web Service
+1. Click **"New +"** button in top right
+2. Select **"Web Service"**
+3. Connect your repository: `NexanalyzeAI--Transform-Data-Into-Insights`
+4. Click **"Connect"**
 
-#### Step 1: Connect to Vercel
-1. Visit [vercel.com/new](https://vercel.com/new)
-2. Click **"Continue with GitHub"** to sign in
-3. Authorize Vercel to access your GitHub repositories
+#### Step 3: Configure Service
 
-#### Step 2: Import Your Repository
-1. Click **"Import Project"** or **"Add New Project"**
-2. Select **"Import Git Repository"**
-3. Find and select: `NexanalyzeAI--Transform-Data-Into-Insights`
-4. Click **"Import"**
+**Basic Settings:**
+- **Name**: `nexalyze-ai` (or your preferred name)
+- **Region**: Oregon (US West) - or closest to you
+- **Branch**: `main`
+- **Runtime**: `Docker`
 
-#### Step 3: Configure Project Settings
-- **Framework Preset**: Other
-- **Root Directory**: `./` (leave as default)
-- **Build Command**: (leave empty or default)
-- **Output Directory**: (leave empty or default)
-- **Install Command**: `pip install -r requirements.txt`
+**Build & Deploy:**
+- **Dockerfile Path**: `./Dockerfile` (auto-detected)
+- Render will automatically use your Dockerfile
+
+**Instance Type:**
+- Select **"Free"** (512MB RAM, $0/month)
 
 #### Step 4: Add Environment Variables
-Click **"Environment Variables"** section and add:
 
-| Key | Value | Environment |
-|-----|-------|-------------|
-| `OPENAI_API_KEY` | `your_openai_api_key_here` | Production, Preview, Development |
-| `ENVIRONMENT` | `production` | Production |
-| `DATABASE_URL` | `sqlite:///./pra_database.db` | All |
-| `APP_NAME` | `Nexalyze AI` | All |
-| `HOST` | `0.0.0.0` | All |
-| `PORT` | `8000` | All |
+Click **"Advanced"** → **"Add Environment Variable"** for each:
 
-💡 **Tip**: Get your OpenAI API key from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+| Key | Value |
+|-----|-------|
+| `OPENAI_API_KEY` | `your_openai_api_key_here` |
+| `ENVIRONMENT` | `production` |
+| `DATABASE_URL` | `sqlite:///./pra_database.db` |
+| `APP_NAME` | `Nexalyze AI` |
+| `HOST` | `0.0.0.0` |
 
-#### Step 5: Deploy
-1. Click **"Deploy"** button
-2. Wait 1-2 minutes for the build to complete
-3. Once deployed, you'll see: ✅ **"Deployment Ready"**
+💡 **Important**: Keep `OPENAI_API_KEY` as a secret!
 
-#### Step 6: Access Your Application
-- **Production URL**: `https://your-project-name.vercel.app`
-- **Health Check**: `https://your-project-name.vercel.app/api/v1/health`
-- **API Documentation**: `https://your-project-name.vercel.app/docs`
-- **Interactive API**: `https://your-project-name.vercel.app/redoc`
+#### Step 5: Configure Health Check (Optional but Recommended)
+- **Health Check Path**: `/api/v1/health`
+
+#### Step 6: Deploy
+1. Click **"Create Web Service"**
+2. Wait 5-8 minutes for initial build (Docker build takes longer)
+3. Watch the build logs in real-time
+4. Once complete, you'll see: ✅ **"Live"**
+
+#### Step 7: Access Your Application
+Your app will be available at:
+- **URL**: `https://nexalyze-ai.onrender.com`
+- **Health Check**: `https://nexalyze-ai.onrender.com/api/v1/health`
+- **API Docs**: `https://nexalyze-ai.onrender.com/docs`
+- **Interactive API**: `https://nexalyze-ai.onrender.com/redoc`
 
 ---
 
-### Method 2: Deploy via Vercel CLI
+### Method 2: Deploy via render.yaml (Blueprint)
 
-#### Step 1: Install Vercel CLI
-```bash
-npm install -g vercel
-```
+The repository includes `render.yaml` for one-click deployment:
 
-#### Step 2: Login to Vercel
-```bash
-vercel login
-```
-
-#### Step 3: Deploy
-```bash
-# Navigate to project directory
-cd NexanalyzeAI--Transform-Data-Into-Insights
-
-# Deploy to preview
-vercel
-
-# Deploy to production
-vercel --prod
-```
-
-#### Step 4: Set Environment Variables
-```bash
-vercel env add OPENAI_API_KEY production
-vercel env add ENVIRONMENT production
-vercel env add DATABASE_URL production
-```
+1. Go to [dashboard.render.com](https://dashboard.render.com)
+2. Click **"New +"** → **"Blueprint"**
+3. Connect your repository
+4. Render will auto-detect `render.yaml`
+5. Add your `OPENAI_API_KEY` when prompted
+6. Click **"Apply"**
 
 ---
 
 ### 🔄 Automatic Deployments
 
-Once connected, Vercel automatically deploys:
-- ✅ **Production**: Every push to `main` branch
-- 🔍 **Preview**: Every push to feature branches
-- 📝 **PR Previews**: Every pull request gets its own URL
+Once connected, Render automatically deploys:
+- ✅ **Auto-Deploy**: Every push to `main` branch
+- 🔄 **Manual Deploy**: Click "Manual Deploy" button anytime
+- 📝 **Deploy Hooks**: Webhook URLs for CI/CD integration
 
 ---
 
 ### 📊 Post-Deployment Checklist
 
-- [ ] Verify health endpoint: `/api/v1/health`
-- [ ] Test API documentation: `/docs`
-- [ ] Check environment variables in Vercel Dashboard
+- [ ] Verify service is "Live" (green status)
+- [ ] Test health endpoint: `/api/v1/health` (should return 200 OK)
+- [ ] Check API documentation: `/docs`
 - [ ] Test file upload functionality
 - [ ] Verify AI analysis features work
-- [ ] Check logs in Vercel Dashboard → Deployment → Logs
-- [ ] (Optional) Add custom domain in Settings → Domains
+- [ ] Check logs: Dashboard → Your Service → Logs
+- [ ] (Optional) Add custom domain in Settings
 
 ---
 
-### 🛠️ Vercel Project Structure
+### 🛠️ Project Structure for Render
 
 ```
 project-root/
-├── api/
-│   └── index.py           # Vercel serverless entry point
-├── app/
-│   ├── main.py            # FastAPI application
-│   ├── api/               # API routes
-│   ├── core/              # Core configuration
-│   ├── db/                # Database models
-│   ├── genai/             # AI/LLM integration
-│   ├── ml/                # ML models
-│   ├── services/          # Business logic
-│   └── ...
-├── vercel.json            # Vercel configuration
+├── Dockerfile             # Docker configuration for Render
+├── render.yaml            # Render blueprint (optional)
 ├── requirements.txt       # Python dependencies
+├── app/
+│   ├── main.py           # FastAPI application
+│   ├── api/              # API routes
+│   ├── core/             # Core configuration
+│   ├── db/               # Database models
+│   ├── genai/            # AI/LLM integration
+│   ├── ml/               # ML models
+│   └── services/         # Business logic
 └── README.md
 ```
 
 ---
 
-### ⚙️ Vercel Configuration (`vercel.json`)
+### 🐳 Dockerfile Configuration
 
-```json
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "app/main.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app/main.py"
-    }
-  ]
-}
+```dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+
+# Install dependencies
+RUN apt-get update && apt-get install -y gcc g++
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application
+COPY . .
+RUN mkdir -p logs data uploads models app/charts app/reports
+
+# Render sets PORT env variable
+EXPOSE 8000
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
 ```
 
 ---
@@ -376,53 +375,73 @@ project-root/
 ### 🔍 Troubleshooting
 
 #### Build Fails
+- Check build logs in Render Dashboard
+- Verify Dockerfile syntax
+- Ensure all dependencies in `requirements.txt`
 - Check Python version compatibility (3.10+)
-- Verify all dependencies in `requirements.txt`
-- Check build logs in Vercel Dashboard
 
-#### Environment Variables Not Working
-- Ensure variables are added to all environments
-- Redeploy after adding new variables
-- Check variable names match exactly (case-sensitive)
+#### Service Won't Start
+- Check service logs for errors
+- Verify `OPENAI_API_KEY` is set correctly
+- Ensure PORT environment variable is used
+- Check health check path is correct
 
-#### API Returns 404
-- Verify `vercel.json` configuration
-- Check that `api/index.py` exists
-- Ensure routes in FastAPI are correct
+#### Slow Cold Starts (Free Tier)
+- Free tier services spin down after 15 minutes of inactivity
+- First request after idle takes ~30 seconds to wake up
+- Upgrade to paid tier ($7/month) for always-on service
 
-#### Cold Starts / Slow Response
-- Vercel serverless functions have cold starts (~1-3s)
-- Consider upgrading to Vercel Pro for faster cold starts
-- Optimize imports and initialization in your code
-
----
-
-### 📈 Vercel Features & Benefits
-
-| Feature | Free Tier | Pro Tier |
-|---------|-----------|----------|
-| Deployments | Unlimited | Unlimited |
-| Bandwidth | 100 GB/month | 1 TB/month |
-| Build Time | 100 hours/month | 400 hours/month |
-| Serverless Functions | 12 seconds timeout | 60 seconds timeout |
-| Custom Domains | ✅ Yes | ✅ Yes |
-| SSL Certificates | ✅ Free | ✅ Free |
-| GitHub Integration | ✅ Yes | ✅ Yes |
-| Preview Deployments | ✅ Yes | ✅ Yes |
-| Analytics | Basic | Advanced |
-| Team Members | 1 | Unlimited |
+#### Database Issues
+- SQLite works but data resets on redeployment
+- For persistent data, consider PostgreSQL (Render provides free 90-day trial)
+- Add persistent disk in Render settings
 
 ---
 
-### 🎯 Why Vercel?
+### 📈 Render Pricing & Features
 
-- ⚡ **Zero Configuration**: Deploy with one click
-- 🌍 **Global CDN**: Fast response times worldwide
-- 🔄 **Automatic CI/CD**: Push to deploy
-- 📊 **Built-in Analytics**: Monitor performance
-- 🔒 **SSL by Default**: Free HTTPS certificates
-- 🎨 **Preview Deployments**: Test before production
-- 📈 **Auto Scaling**: Handle traffic spikes automatically
+| Feature | Free Tier | Starter ($7/mo) |
+|---------|-----------|-----------------|
+| RAM | 512 MB | 512 MB |
+| CPU | Shared | Shared |
+| Bandwidth | 100 GB/month | 100 GB/month |
+| Build Minutes | 500/month | 500/month |
+| Sleep After Inactivity | 15 minutes | Never |
+| Custom Domain | ✅ Yes | ✅ Yes |
+| SSL Certificate | ✅ Free | ✅ Free |
+| Auto-Deploy | ✅ Yes | ✅ Yes |
+| Docker Support | ✅ Yes | ✅ Yes |
+
+---
+
+### ⚡ Performance Tips
+
+1. **Keep Service Awake** (Free Tier):
+   - Use a cron job to ping your service every 14 minutes
+   - Example: UptimeRobot (free monitoring service)
+
+2. **Optimize Docker Build**:
+   - Layer caching is used automatically
+   - Heavy dependencies install first (requirements.txt)
+
+3. **Monitor Performance**:
+   - Check Metrics tab in Render Dashboard
+   - Monitor response times and memory usage
+
+4. **Upgrade When Needed**:
+   - Upgrade to Starter ($7/mo) for always-on
+   - No cold starts, better performance
+
+---
+
+### 🎯 Why Render for This Project?
+
+- ✅ **ML Libraries**: Supports scikit-learn, matplotlib, seaborn
+- ✅ **No Size Limits**: Unlike Vercel's 50MB limit
+- ✅ **Docker Native**: Full control over environment
+- ✅ **Free Tier**: No credit card required
+- ✅ **Easy Setup**: Auto-detects Dockerfile
+- ✅ **Great for AI**: Perfect for ML/AI applications
 
 ---
 

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: nexalyze-ai
+    env: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///./pra_database.db
+      - key: APP_NAME
+        value: Nexalyze AI
+      - key: HOST
+        value: 0.0.0.0
