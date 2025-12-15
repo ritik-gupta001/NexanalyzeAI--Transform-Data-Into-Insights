@@ -217,7 +217,7 @@ GET /api/v1/tasks/?page=1&page_size=10
 
 ## 🌐 Render Deployment Guide
 
-### 🚀 Deploy to Render (Recommended for ML Apps)
+### 🚀 Deploy to Render
 
 Render provides free hosting with Docker support, perfect for ML/AI applications with no size restrictions.
 
@@ -296,18 +296,6 @@ Your app will be available at:
 
 ---
 
-### Method 2: Deploy via render.yaml (Blueprint)
-
-The repository includes `render.yaml` for one-click deployment:
-
-1. Go to [dashboard.render.com](https://dashboard.render.com)
-2. Click **"New +"** → **"Blueprint"**
-3. Connect your repository
-4. Render will auto-detect `render.yaml`
-5. Add your `OPENAI_API_KEY` when prompted
-6. Click **"Apply"**
-
----
 
 ### 🔄 Automatic Deployments
 
@@ -575,4 +563,5 @@ For support, please open an issue on GitHub or contact through the repository.
   <br><br>
   ⭐ Star this repo if you find it helpful!
 </div>
+
 
