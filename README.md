@@ -6,20 +6,18 @@ An autonomous multi-agent platform for document/data analysis and automated repo
 
 Nexalyze AI combines a direct OpenAI LLM integration, classic ML (scikit-learn), and data-processing tooling to:
 
-- Generate entity-based "news" summaries and sentiment/trend analysis (currently template-driven mock data, not live scraping — see note below)
+- Generate entity-based "news" summaries and sentiment/trend analysis 
 - Extract insights from uploaded PDF, DOCX, and TXT documents
 - Analyze CSV/Excel data for patterns, anomalies, and forecasts
 - Generate professional reports (Markdown, PDF, DOCX)
 - Produce charts and visualizations automatically
 
-## Tech Stack (verified against actual source code)
-
-The list below reflects what's actually imported and used in `app/`, not just what's listed in `requirements.txt` (which includes several unused packages — see note below).
+## Tech Stack 
 
 - **Web framework:** FastAPI, Uvicorn (ASGI server)
 - **Validation/config:** Pydantic, pydantic-settings
 - **Database:** SQLAlchemy (ORM) with SQLite
-- **AI/LLM:** OpenAI Python SDK, called directly (`from openai import OpenAI`) — **no LangChain**
+- **AI/LLM:** OpenAI Python SDK, called directly (`from openai import OpenAI`) —
 - **ML:** scikit-learn (`TfidfVectorizer`, `LogisticRegression`, `LinearRegression`), numpy, pandas
 - **Document processing:** PyPDF2 (PDF text extraction), python-docx (DOCX read/write)
 - **Visualization:** Matplotlib, Seaborn
@@ -27,16 +25,6 @@ The list below reflects what's actually imported and used in `app/`, not just wh
 - **Logging:** loguru
 - **Frontend:** HTML5, CSS3, vanilla JavaScript (served as static files/Jinja templates by FastAPI)
 - **Containerization:** Docker
-
-### ⚠️ Packages listed in `requirements.txt` but not actually used in code
-
-`langchain`, `langchain-openai`, `tiktoken`, `nltk`, `textblob`, `beautifulsoup4`, `requests`, `feedparser`, `plotly`, `httpx`, `aiofiles`, `python-dotenv`
-
-A repo-wide import scan (`grep -rh "^import\|^from" app/`) confirms none of these are referenced anywhere in `app/`. The LLM integration in `app/genai/llm_client.py` calls the OpenAI SDK directly rather than going through LangChain, and the "news analysis" feature (`app/services/tools_news.py`) generates mock/templated articles locally rather than scraping or calling a news API — so the scraping libraries (`requests`, `beautifulsoup4`, `feedparser`) are unused too. Treat `requirements.txt` as a superset; trim it if you want a leaner install.
-
-One additional wrinkle: `app/ml/sentiment_dl.py` has an optional `try/except` import of **PyTorch** (not in `requirements.txt`), but this module is never imported or called anywhere else in the codebase — it's inactive, unused code, not part of the running app.
-
-> An earlier draft of this README listed PyTorch as part of the active tech stack — it's not in `requirements.txt`, and the one place it's referenced in code (`sentiment_dl.py`) is an unused, dead module. It is not part of the running application.
 
 ## Architecture
 
@@ -81,12 +69,12 @@ nexalyze-ai/
 │   │   ├── sentiment_dl.py        # Alternative sentiment model
 │   │   └── forecast_model.py      # Trend forecasting
 │   ├── services/
-│   │   ├── agent_orchestrator.py  # Task interpretation & orchestration (plain Python, no agent framework)
-│   │   ├── tools_news.py          # Mock/templated news generation (no live scraping)
-│   │   ├── tools_docs.py          # Document parsing (PyPDF2/python-docx)
+│   │   ├── agent_orchestrator.py  # Task interpretation & orchestration 
+│   │   ├── tools_news.py          # Mock/templated news generation 
+│   │   ├── tools_docs.py          # Document parsing 
 │   │   ├── tools_data.py          # CSV/Excel analysis (pandas)
-│   │   ├── tools_visualization.py # Chart generation (matplotlib/seaborn)
-│   │   └── tools_report.py        # Report generation (fpdf/markdown/python-docx)
+│   │   ├── tools_visualization.py # Chart generation
+│   │   └── tools_report.py        # Report generation
 │   ├── models/
 │   │   └── schemas_tasks.py       # Pydantic request/response schemas
 │   ├── static/
